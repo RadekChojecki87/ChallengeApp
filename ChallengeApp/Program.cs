@@ -1,6 +1,6 @@
 ﻿using ChallengeApp;
 
-Employee employee1 = new Employee("Wiktor", "Gracz", 12);
+Employee employee1 = new Employee("Wiktor", "Gracz", 13);
 Employee employee2 = new Employee("Jagoda", "Kasztan", 12);
 Employee employee3 = new Employee("Karolina", "Kot", 36);
 
@@ -40,4 +40,4 @@ foreach (var Employee in employees)
         maxResult = Employee.Result;
     }
 }
-Console.WriteLine("Pracownikiem z największą ilością punktów jest: " + employeeWithMaxResult.Name + " " + employeeWithMaxResult.Surname + " " + maxResult + " " + "punktów");
+Console.WriteLine("Pracownikiem z największą ilością punktów jest: " + employeeWithMaxResult.Name + " " + employeeWithMaxResult.Surname + " " +  maxResult + " " + "punktów");
