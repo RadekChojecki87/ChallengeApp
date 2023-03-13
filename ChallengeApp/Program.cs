@@ -3,7 +3,9 @@
 var employee1 = new Employee("Jagoda", "Kot");
 var employee2 = new Employee("Wiktor", "Pływak");
 
-employee1.AddGrade(2);
+employee1.AddGrade("Radek");
+employee1.AddGrade("2000");
+employee1.AddGrade("1f");
 employee1.AddGrade(4);
 employee1.AddGrade(6);
 
