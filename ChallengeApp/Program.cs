@@ -1,25 +1,39 @@
 ﻿using ChallengeApp;
 
-var employee1 = new Employee("Jagoda", "Kot");
-var employee2 = new Employee("Wiktor", "Pływak");
+var employee = new Employee("Jagoda", "Kot");
 
-employee1.AddGrade("Radek");
-employee1.AddGrade("2000");
-employee1.AddGrade("1f");
-employee1.AddGrade(4);
-employee1.AddGrade(6);
+employee.AddGrade("k");
+employee.AddGrade("2000");
+employee.AddGrade(2);
+employee.AddGrade(4);
+employee.AddGrade(6);
 
-employee2.AddGrade(8);
-employee2.AddGrade(6);
-employee2.AddGrade(7);
+var statistics = employee.GetStatistics();
+Console.WriteLine($"Average - {statistics.Average:N2}");
+Console.WriteLine($"Min - {statistics.Min}");
+Console.WriteLine($"Max - {statistics.Max}");
 
-var statistics1 = employee1.GetStatistics();
-var statistics2 = employee2.GetStatistics();
+var statistics1 = employee.GetStatisticsWithForEach();
+Console.WriteLine("----FOREACH----");
+Console.WriteLine($"Average - {statistics1.Average:N2}");
+Console.WriteLine($"Min - {statistics1.Min}");
+Console.WriteLine($"Max - {statistics1.Max}");
 
-Console.WriteLine($"Average - Jagoda Kot: {statistics1.Average:N2}");
-Console.WriteLine($"Min - Jagoda Kot: {statistics1.Min}");
-Console.WriteLine($"Max - Jagoda Kot: {statistics1.Max}");
+var statistics2 = employee.GetStatisticsWithFor();
+Console.WriteLine("----FOR----");
+Console.WriteLine($"Average - {statistics2.Average:N2}");
+Console.WriteLine($"Min - {statistics2.Min}");
+Console.WriteLine($"Max - {statistics2.Max}");
 
-Console.WriteLine($"Average - Wiktor Pływak: {statistics2.Average:N2}");
-Console.WriteLine($"Min - Wiktor Pływak: {statistics2.Min}");
-Console.WriteLine($"Max - Wiktor Pływak: {statistics2.Max}");
+var statistics3 = employee.GetStatisticsWithDoWhile();
+Console.WriteLine("----DO WHILE----");
+Console.WriteLine($"Average - {statistics3.Average:N2}");
+Console.WriteLine($"Min - {statistics3.Min}");
+Console.WriteLine($"Max - {statistics3.Max}");
+
+var statistics4 = employee.GetStatisticsWithWhile();
+Console.WriteLine("----WHILE----");
+Console.WriteLine($"Average - {statistics4.Average:N2}");
+Console.WriteLine($"Min - {statistics4.Min}");
+Console.WriteLine($"Max - {statistics4.Max}");
+
