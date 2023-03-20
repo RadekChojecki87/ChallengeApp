@@ -123,7 +123,6 @@ namespace ChallengeApp
             statistics.Average = statistics.Average / this.grades.Count;
             return statistics;
         }
-
         public Statistics GetStatisticsWithWhile()
         {
             var statistics = new Statistics();
@@ -139,12 +138,8 @@ namespace ChallengeApp
                 statistics.Average += this.grades[i];
                 i++;
             }
-
             statistics.Average = statistics.Average / this.grades.Count;
             return statistics;
         }
-
-
-
     }
 }
