@@ -6,13 +6,13 @@
         public void MinOfGrades_ShouldReturnCorrectMinResult()
         {
             //arrange
-            var employee1 = new Employee("Jagoda", "Kot");
-            employee1.AddGrade(2);
-            employee1.AddGrade(4);
-            employee1.AddGrade(6);
+            var employee = new Employee("Radek", "Chojecki");
+            employee.AddGrade(2);
+            employee.AddGrade(4);
+            employee.AddGrade(6);
 
             //act
-            var statistics = employee1.GetStatistics();
+            var statistics = employee.GetStatistics();
             
 
             //assert
@@ -22,13 +22,13 @@
         public void MaxOfGrades_ShouldReturnCorrectMaxResult()
         {
             //arrange
-            var employee2 = new Employee("Wiktor", "Pływak");
-            employee2.AddGrade(8);
-            employee2.AddGrade(6);
-            employee2.AddGrade(7);
+            var employee = new Employee("Radek", "Chojecki");
+            employee.AddGrade(8);
+            employee.AddGrade(6);
+            employee.AddGrade(7);
 
             //act
-            var statistics = employee2.GetStatistics();
+            var statistics = employee.GetStatistics();
             
             //assert
             Assert.AreEqual(8, statistics.Max);
@@ -38,18 +38,31 @@
         public void AverageOfGrades_ShouldReturnCorrectAverageResult() 
         {
             // arrange
-            var employee2 = new Employee("Wiktor", "Pływak");
-            employee2.AddGrade(8);
-            employee2.AddGrade(6);
-            employee2.AddGrade(7);
+            var employee = new Employee("Radek", "Chojecki");
+            employee.AddGrade(8);
+            employee.AddGrade(6);
+            employee.AddGrade(7);
 
             // act
-            var statistics = employee2.GetStatistics();
+            var statistics = employee.GetStatistics();
            
 
             // assert
             Assert.AreEqual(Math.Round(7.00, 2), Math.Round(statistics.Average, 2));
             
         }
-    }
+        [Test]
+        public void AddGradeChar()
+        {
+            var employee = new Employee("Radek", "Chojecki");
+            employee.AddGrade('A');
+            employee.AddGrade('c');
+
+            var statistics = employee.GetStatistics();
+
+            var average = employee.GetStatistics().AverageLetter;
+
+            Assert.AreEqual('A', average);
+        }
+    }  
 }

@@ -1,16 +1,41 @@
 ﻿using ChallengeApp;
 
-var employee = new Employee("Jagoda", "Kot");
+Console.WriteLine("Witamy w programie XYZ do oceny Pracowników");
+Console.WriteLine("===============================================");
+Console.WriteLine("Zakończ wprowadzanie ocen i otrzymaj statystyki - wprowadz 'q'.");
+Console.WriteLine("Pracownik: Radek Chojecki");
 
-employee.AddGrade("k");
-employee.AddGrade("2000");
-employee.AddGrade(2);
-employee.AddGrade(4);
-employee.AddGrade(6);
+var employee = new Employee("Radek", "Chojecki");
+int index = 1;
 
+while (true)
+{
+    if(index == 1)
+    {
+        Console.WriteLine("Podaj ocenę Pracownika:");
+    }
+    else
+    {
+        Console.WriteLine("Podaj kolejną ocenę Pracownika:");
+    }
+    var input = Console.ReadLine();
+    if (input == "q")
+    {
+        break;
+    }
+    employee.AddGrade(input);
+    index++;
+}
+if (index == 1)
+{
+    Console.WriteLine("Brak wprowadzonych ocen:");
+}
+
+Console.WriteLine("Statystyka Pracownika: ");
 var statistics = employee.GetStatistics();
-Console.WriteLine($"Average - {statistics.Average:N2}");
-Console.WriteLine($"Min - {statistics.Min}");
-Console.WriteLine($"Max - {statistics.Max}");
+Console.WriteLine($"Radek Chojecki - Average Letter: {statistics.AverageLetter}");
+Console.WriteLine($"Radek Chojecki - Average: {statistics.Average:N2}");
+Console.WriteLine($"Radek Chojecki - Min: {statistics.Min}");
+Console.WriteLine($"Radek Chojecki - Max: {statistics.Max}");
 
 
