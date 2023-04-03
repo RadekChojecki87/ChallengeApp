@@ -10,29 +10,24 @@ int index = 1;
 
 while (true)
 {
-    if(index == 1)
-    {
-        Console.WriteLine("Podaj ocenę Pracownika:");
-    }
-    else
-    {
-        Console.WriteLine("Podaj kolejną ocenę Pracownika:");
-    }
+    Console.WriteLine("Podaj ocenę Pracownika:");
     var input = Console.ReadLine();
     if (input == "q")
     {
         break;
     }
-    employee.AddGrade(input);
-    index++;
-}
-if (index == 1)
-{
-    Console.WriteLine("Brak wprowadzonych ocen:");
-}
 
-Console.WriteLine("Statystyka Pracownika: ");
+    try
+    {
+        employee.AddGrade(input);
+    }
+    catch (Exception e)
+    {
+        Console.WriteLine($"Exception caught: {e.Message}");
+    }       
+}
 var statistics = employee.GetStatistics();
+
 Console.WriteLine($"Radek Chojecki - Average Letter: {statistics.AverageLetter}");
 Console.WriteLine($"Radek Chojecki - Average: {statistics.Average:N2}");
 Console.WriteLine($"Radek Chojecki - Min: {statistics.Min}");

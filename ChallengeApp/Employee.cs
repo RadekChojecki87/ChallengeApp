@@ -29,7 +29,7 @@ namespace ChallengeApp
             }
             else
             {
-                Console.WriteLine("Niepoprawna wartośc oceny" + " ");
+                throw new Exception("invalid grade value");               
             }
         }
         public void AddGrade(double grade) 
@@ -62,16 +62,16 @@ namespace ChallengeApp
                         this.AddGrade(resultChar);
                         break;
                     default:
-                   
-                        if(float.TryParse(grade, out float result))
+                        throw new Exception("wrong letter");
+
+                        if (float.TryParse(grade, out float result))
                         {
                             this.AddGrade(result);
                         }
                         else
                         {
-                            Console.WriteLine("Niepoprawna wartośc oceny" + " ");
-                        }
-                        break;
+                            throw new Exception("Niepoprawna wartośc oceny" + " ");                            
+                        }                        
                 }
             }
             else
@@ -82,13 +82,13 @@ namespace ChallengeApp
                 }
                 else
                 {
-                    Console.WriteLine("Podana Wartość nie jest floatem"); 
+                    throw new Exception("String is not float" + " ");
                 }
             }
             
         }
         public void AddGrade(char grade)
-        {        
+        {          
             switch(grade)
             {
                 case 'A':
@@ -112,8 +112,7 @@ namespace ChallengeApp
                     this.grades.Add(20);
                     break;
                 default:
-                    Console.WriteLine("Wrong Letter");
-                    break;
+                    throw new Exception("wrong letter");
             }
         }       
         public void AddGrade()
@@ -126,7 +125,7 @@ namespace ChallengeApp
             }
             else
             {
-                Console.WriteLine("String is not float");
+                throw new Exception("String is not float");
             }
         }
         public Statistics GetStatistics()
@@ -147,7 +146,7 @@ namespace ChallengeApp
             }
 
                 statistics.Average /= grades.Count;
-            
+          
                 switch (statistics.Average)
                 {
                     case var average when average >= 80:
