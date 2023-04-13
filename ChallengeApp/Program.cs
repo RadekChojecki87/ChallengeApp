@@ -5,8 +5,16 @@ Console.WriteLine("===============================================");
 Console.WriteLine("Zakończ wprowadzanie ocen i otrzymaj statystyki - wprowadz 'q'.");
 Console.WriteLine("Pracownik: Radek Chojecki");
 
-var employee = new Employee("Radek", "Chojecki");
-int index = 1;
+Console.WriteLine("wprowadź imię pracownika");
+var name = Console.ReadLine();
+
+Console.WriteLine("Wprowadź nazwisko pracownika");
+var surname = Console.ReadLine();
+
+var employee = new Employee("name", "surname");
+employee.ToString();
+//int index = 1;
+
 
 while (true)
 {
