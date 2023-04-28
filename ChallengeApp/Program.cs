@@ -11,7 +11,7 @@ var name = Console.ReadLine();
 Console.WriteLine("Wprowadź nazwisko pracownika");
 var surname = Console.ReadLine();
 
-var employee = new Employee("name", "surname");
+var employee = new Employee("name", "surname", "male");
 employee.ToString();
 //int index = 1;
 
