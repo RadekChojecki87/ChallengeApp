@@ -3,44 +3,57 @@
     public class Supervisor : IEmployee
     {
         private List<float> grades = new List<float>();
-
-        public Supervisor(string name, string surname, string sex)
+        public string Name => "Radek"; 
+        public string Surname => "Chojecki";
+        
+        public void AddGrade(float grade)
         {
-            this.Name = name;
-            this.Surname = surname;
-            this.Sex = sex;
+            throw new NotImplementedException();
         }
-        public string Name { get; private set; }
-        public string Surname { get; private set; }
 
-        public string Sex { get; private set; }
-
-        public void AddGrade(int grade)
+        public void AddGrade(byte grade)
         {
-            var gradeAsFloat = (float)grade;
-            grades.Add(gradeAsFloat);
+            throw new NotImplementedException();
+        }
+        public void AddGrade(long grade)
+        {
+            throw new NotImplementedException();
         }
         public void AddGrade(double grade)
         {
-            var gradeAsFloat = (float)grade;
-            grades.Add(gradeAsFloat);
+            throw new NotImplementedException();
+        }
+        public void AddGrade(int grade)
+        {
+            throw new NotImplementedException();
         }
         public void AddGrade(char grade)
         {
-            var gradesAsFloat = (float)grade;
-            grades.Add(gradesAsFloat);
+            throw new NotImplementedException();
         }
-        public void AddGrade(float grade)
+        public Statistics GetStatistics()
         {
-            if (grade >= 0 && grade <= 100)
-            {
-                grades.Add(grade);
-            }
-            else
-            {
-                throw new Exception("invalid grade value");
-            }
+            return new Statistics();
+            //throw new NotImplementedException();
         }
+        public Statistics GetStatisticsWithDoWhile()
+        {
+            throw new NotImplementedException();
+        }
+        public Statistics GetStatisticsWithFor()
+        {
+            throw new NotImplementedException();
+        }
+        public Statistics GetStatisticsWithForEach()
+        {
+            throw new NotImplementedException();
+        }
+        public Statistics GetStatisticsWithWhile()
+        {
+            throw new NotImplementedException();
+        }
+
+
         public void AddGrade(string grade)
         {
             switch (grade)
@@ -92,48 +105,12 @@
                 case "2":
                     this.grades.Add(20);
                     break;
-                case "-2":
-                case "2-":
-                    this.grades.Add(15);
-                    break;
                 case "1":
                     this.grades.Add(0);
                     break;
                 default:
-                    throw new Exception("Wrong string");
+                    throw new Exception("Wrong mark");
             }
-
-        }
-        public Statistics GetStatistics()
-        {
-            var statistics2 = new Statistics();
-            statistics2.Average = 0;
-            statistics2.Max = float.MinValue;
-            statistics2.Min = float.MaxValue;
-
-            foreach (var grade in this.grades)
-            {
-                if (grade >= 0)
-                {
-                    statistics2.Max = Math.Max(statistics2.Max, grade);
-                    statistics2.Min = Math.Min(statistics2.Min, grade);
-                    statistics2.Average += grade;
-                }
-            }
-
-            statistics2.Average /= this.grades.Count;
-
-            statistics2.AverageLetter = statistics2.Average
-                switch
-            {
-                var average when average >= 80 => 'A',
-                var average when average >= 60 => 'B',
-                var average when average >= 40 => 'C',
-                var average when average >= 20 => 'D',
-                _ => 'E',
-            };
-            return statistics2;
-         
         }
     }
 }
