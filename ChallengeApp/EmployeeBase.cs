@@ -2,6 +2,16 @@
 {
     public abstract class EmployeeBase : IEmployee
     {
+        public delegate void GradeAddedDelegate(object sender, EventArgs args);
+
+        public event GradeAddedDelegate GradeAdded;
+
+        private static int average;
+
+        void GradesAdded(object sender, EventArgs args)
+        {
+            Console.WriteLine("Dodano nową ocenę");
+        }
         public EmployeeBase(string name, string surname)
         {
             this.Name = name;
@@ -17,7 +27,10 @@
         public abstract void AddGrade(string grade);
         public abstract void AddGrade(byte grade);
         public abstract void AddGrade(short grade);
+
+        
         public abstract Statistics GetStatistics();
+        
  
 
     }

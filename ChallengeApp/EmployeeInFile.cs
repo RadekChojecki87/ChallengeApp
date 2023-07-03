@@ -5,7 +5,12 @@ namespace ChallengeApp
 {
     public class EmployeeInFile : EmployeeBase
     {
+         
         private const string fileName = "grades.txt";
+
+        public event GradeAddedDelegate GradeAdded;
+
+        public List<float> grades = new();
         public EmployeeInFile(string name, string surname)
             : base(name, surname)
         {
@@ -13,16 +18,21 @@ namespace ChallengeApp
 
         public override void AddGrade(float grade)
         {
-            using (var writer = File.AppendText(fileName))
+            if (grade >= 0 && grade <= 100)
             {
-                if (grade >= 0 && grade <= 100)
+                using (var writer = File.AppendText(fileName))
                 {
                     writer.WriteLine(grade);
                 }
-                else
+
+                if (GradeAdded != null)
                 {
-                    throw new Exception("Value out of range");
+                    GradeAdded(this, new EventArgs());
                 }
+            }
+            else
+            {
+                throw new Exception("invalid grade value");
             }
         }
 

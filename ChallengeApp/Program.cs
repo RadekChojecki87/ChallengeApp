@@ -10,13 +10,37 @@ Console.WriteLine("Pracownik: Radek Chojecki");
 
 //Console.WriteLine("Wprowadź nazwisko pracownika");
 //var surname = Console.ReadLine();
-var employee = new EmployeeInFile("Radek", "Chojecki");
+var employee = new EmployeeInMemory("Radek", "Chojecki");
 
-employee.AddGrade(0.5);
-employee.AddGrade(33);
-employee.AddGrade('c');
-employee.AddGrade('E');
-employee.AddGrade(11);
+employee.GradeAdded += EmployeeGradeAdded;
+employee.GradeAdded += EmployeeGradeAdded;
+
+void EmployeeGradeAdded(object sender, EventArgs args)
+{
+    Console.WriteLine("dodano nową ocenę");
+}
+
+employee.GradeAdded -= EmployeeGradeAdded;
+
+employee.AddGrade(5);
+
+while(true)
+{
+    Console.WriteLine("Podaj kolejną ocenę pracownika");
+    var input = Console.ReadLine();
+    if(input == "q")
+    {
+        break;
+    }
+    try
+    {
+        employee.AddGrade(input);
+    }
+    catch (Exception e)
+    {
+        Console.WriteLine($"Exception catched: {e.Message}");
+    }
+}
 
 var statistics = employee.GetStatistics();
 
@@ -29,27 +53,27 @@ Console.WriteLine();
 
 //var statistics = employee.GetStatistics();
 
-//while (true)
-//{
-//    Console.WriteLine("Podaj kolejną ocenę pracownika (jeśli koniec, nacisnij 'q/Q') :");
-//    var input = Console.ReadLine();
-//    if (input == "q" || input == "Q")
-//    {
-//        break;
-//    }
+while (true)
+{
+    Console.WriteLine("Podaj kolejną ocenę pracownika (jeśli koniec, nacisnij 'q/Q') :");
+    var input = Console.ReadLine();
+    if (input == "q" || input == "Q")
+    {
+        break;
+    }
 
-//    try
-//    {
-//        employee.AddGrade(input);
-//    }
-//    catch (Exception e)
-//    {
-//        Console.WriteLine($"Exception catched: {e.Message}");
-//    }
-//}
+    try
+    {
+        employee.AddGrade(input);
+    }
+    catch (Exception e)
+    {
+        Console.WriteLine($"Exception catched: {e.Message}");
+    }
+}
 
 
-//Console.WriteLine($"Radek Chojecki - Average Letter: {statistics.AverageLetter}");
-//Console.WriteLine($"Radek Chojecki - Average: {statistics.Average:N2}");
-//Console.WriteLine($"Radek Chojecki - Min: {statistics.Min}");
-//Console.WriteLine($"Radek Chojecki - Max: {statistics.Max}");
+Console.WriteLine($"Radek Chojecki - Average Letter: {statistics.AverageLetter}");
+Console.WriteLine($"Radek Chojecki - Average: {statistics.Average:N2}");
+Console.WriteLine($"Radek Chojecki - Min: {statistics.Min}");
+Console.WriteLine($"Radek Chojecki - Max: {statistics.Max}");

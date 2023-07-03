@@ -15,6 +15,7 @@
 
         void AddGrade(string grade);
 
+        //event GradeAddedDelegate GradeAdded;
         Statistics GetStatistics();
         //Statistics GetStatisticsWithForEach();
         //Statistics GetStatisticsWithFor();
